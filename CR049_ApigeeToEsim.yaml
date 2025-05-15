@@ -1,0 +1,509 @@
+swagger: '2.0'
+info:
+  description: VSBO Service Rest API with Swagger.
+  version: '1.0.0'
+  title: APITEST For VSBP Service API
+  termsOfService: /
+  contact:
+    name: hujilong WX170734
+  license:
+    name: APITEST License
+schemes:
+  - http
+host: '10.10.10.10:19315'
+basePath: /gsma/rsp2/es2plus
+paths:
+  '/downloadOrder':
+    post:
+      tags:
+        - downloadOrder
+      summary: 'downloadOrder'
+      description: 'downloadOrder'
+      operationId: downloadOrderPost
+      consumes:
+        - application/json;charset=utf-8
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - in: header
+          name: AspCallBackUrl
+          type: string
+          required: false
+          description: 'The ASP notify the receipt url.
+                        It would be mandatory for the APIs which invoked by M2M, such as downloadProfile, enbaleProfile,disableProfile,deleteProfiel
+                        HUB will send the notify result request to this url directly.'
+        - in: header
+          name: Basic-Header
+          type: string
+          required: true
+          description: 'Basic-Header: Authorization Username="xxx",Password="xxx"'
+        - in: header
+          name: MNO-ID
+          type: string
+          required: true
+          description: 'Operator identification value that must be configured in PMC.'
+        - in: header
+          name: X-Admin-Protocol
+          type: string
+          required: true
+          description: '"X-Admin-Protocol" header field defined as X-Admin-Protocol: gsma/rsp/v<x.y.z>
+                        Where <x.y.z> indicates Specification.
+                        Version
+                        Number of SGP.22.
+                        Accepted values are
+                        • gsma/rsp/v2.0.0
+                        • gsma/rsp/v2.1.0
+                        • gsma/rsp/v2.2.0'
+        - in: body
+          name: downloadOrderReq
+          description: downloadOrder request object
+          required: true
+          schema:
+            $ref: '#/definitions/downloadOrderReq'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/downloadOrderRsp'
+
+  '/confirmOrder':
+    post:
+      tags:
+        - confirmOrder
+      summary: 'confirmOrder'
+      description: 'confirmOrder'
+      operationId: confirmOrderPost
+      consumes:
+        - application/json;charset=utf-8
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - in: header
+          name: AspCallBackUrl
+          type: string
+          required: false
+          description: 'The ASP notify the receipt url.
+                        It would be mandatory for the APIs which invoked by M2M, such as downloadProfile, enbaleProfile,disableProfile,deleteProfiel
+                        HUB will send the notify result request to this url directly.'
+        - in: header
+          name: Basic-Header
+          type: string
+          required: true
+          description: 'Basic-Header: Authorization Username="xxx",Password="xxx"'
+        - in: header
+          name: MNO-ID
+          type: string
+          description: 'Operator identification value that must be configured in PMC.'
+        - in: header
+          name: X-Admin-Protocol
+          type: string
+          required: true
+          description: '"X-Admin-Protocol" header field defined as X-Admin-Protocol: gsma/rsp/v<x.y.z>
+                        Where <x.y.z> indicates Specification.
+                        Version
+                        Number of SGP.22.
+                        Accepted values are
+                        • gsma/rsp/v2.0.0
+                        • gsma/rsp/v2.1.0
+                        • gsma/rsp/v2.2.0'
+        - in: body
+          name: confirmOrderReq
+          description: confirmOrder request object
+          required: true
+          schema:
+            $ref: '#/definitions/confirmOrderReq'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/confirmOrderRsp'
+
+  '/cancelOrder':
+    post:
+      tags:
+        - cancelOrder
+      summary: 'cancelOrder'
+      description: 'cancelOrder'
+      operationId: cancelOrderPost
+      consumes:
+        - application/json;charset=utf-8
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - in: header
+          name: AspCallBackUrl
+          type: string
+          required: false
+          description: 'The ASP notify the receipt url.
+                        It would be mandatory for the APIs which invoked by M2M, such as downloadProfile, enbaleProfile,disableProfile,deleteProfiel
+                        HUB will send the notify result request to this url directly.'
+        - in: header
+          name: Basic-Header
+          type: string
+          required: true
+          description: 'Basic-Header: Authorization Username="xxx",Password="xxx"'
+        - in: header
+          name: MNO-ID
+          type: string
+          required: true
+          description: 'Operator identification value that must be configured in PMC.'
+        - in: header
+          name: X-Admin-Protocol
+          type: string
+          required: true
+          description: '"X-Admin-Protocol" header field defined as X-Admin-Protocol: gsma/rsp/v<x.y.z>
+                        Where <x.y.z> indicates Specification.
+                        Version
+                        Number of SGP.22.
+                        Accepted values are
+                        • gsma/rsp/v2.0.0
+                        • gsma/rsp/v2.1.0
+                        • gsma/rsp/v2.2.0'
+        - in: body
+          name: cancelOrderReq
+          description: confirmOrder request object
+          required: true
+          schema:
+            $ref: '#/definitions/cancelOrderReq'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/cancelOrderRsp'
+
+  '/releaseProfile':
+    post:
+      tags:
+        - releaseProfile
+      summary: 'releaseProfile'
+      description: 'releaseProfile'
+      operationId: releaseProfilePost
+      consumes:
+        - application/json;charset=utf-8
+      produces:
+        - application/json;charset=utf-8
+      parameters:
+        - in: header
+          name: AspCallBackUrl
+          type: string
+          required: false
+          description: 'The ASP notify the receipt url.
+                        It would be mandatory for the APIs which invoked by M2M, such as downloadProfile, enbaleProfile,disableProfile,deleteProfiel
+                        HUB will send the notify result request to this url directly.'
+        - in: header
+          name: Basic-Header
+          type: string
+          required: true
+          description: 'Basic-Header: Authorization Username="xxx",Password="xxx"'
+        - in: header
+          name: MNO-ID
+          type: string
+          required: true
+          description: 'Operator identification value that must be configured in PMC.'
+        - in: header
+          name: X-Admin-Protocol
+          type: string
+          required: true
+          description: '"X-Admin-Protocol" header field defined as X-Admin-Protocol: gsma/rsp/v<x.y.z>
+                        Where <x.y.z> indicates Specification.
+                        Version
+                        Number of SGP.22.
+                        Accepted values are
+                        • gsma/rsp/v2.0.0
+                        • gsma/rsp/v2.1.0
+                        • gsma/rsp/v2.2.0'
+        - in: body
+          name: releaseProfileReq
+          description: releaseProfile request object
+          required: true
+          schema:
+            $ref: '#/definitions/releaseProfileReq'
+      responses:
+        '200':
+          description: OK
+          schema:
+            $ref: '#/definitions/releaseProfileRsp'
+
+definitions:
+  downloadOrderReq:
+    type: object
+    required:
+      - header
+    description: 'downloadOrder'
+    properties:
+      header:
+        $ref: '#/definitions/headerReqObj'
+      cancelOnGoingOrders:
+        type: string
+        minimum: 0
+        maximum: 10
+        description: 'Custom parameter used to cancel any profiles process linked with the same eid . Profile state is set to finalProfileStatusIndicator value like after a cancel order. If not present no cancelation will be done. This feature could be used if the ES2+DownloadOrder is called by profile Type or by ICCID. The cancelOnGoingOrders is done before the selection of the profile.'
+      eid:
+        type: string
+        minimum: 0
+        maximum: 32
+        description: 'Identification of the targeted eUICC. If provided, the SM-DP+ will restrict the download of this profile to the eUICC identified by this eid.'
+      finalProfileStatusIndicator:
+        type: string
+        enum:
+          - Available
+          - Unavailable
+          - Allocated
+          - Confirmed
+        description: 'It indicates if the targeted profile is released back to the inventory and available for a future use or if it’s not released and remains unavailable for a future use. Default value is unavailable.
+                      * Enum no case sensitive values (Available, Unavailable, Allocated, Confirmed)'
+      iccid:
+        type: string
+        minimum: 0
+        maximum: 20
+        description: 'Identification of the Profile to download and install in the eUICC. ICCID as desc in ITU-T E.118 If present, the profileType parameter is ignored.'
+      imsi:
+        type: string
+        minimum: 0
+        maximum: 20
+        description: 'A proprietary field for ES2 Client, the IMSI value to be assigned in Profile。'
+      msisdn:
+        type: string
+        minimum: 0
+        maximum: 20
+        description: 'A proprietary field for ES2 Client containing MSISDN value to be assigned in Profile. The value shall contain only digit characters whithout space. It will be set in EF MSISDN with TON/NPI and Alpha identifier values defined in configuration, and with relevant format.'
+      operatorId:
+        type: string
+        minimum: 0
+        maximum: 128
+        description: 'A proprietary field for ES2 Client to identify operator and to give a way to manage a request rooting by ES2 Client If this field is not present the OperatorId will not be present in the HandleDownloadProgressInfoNotification'
+      profileType:
+        type: string
+        minimum: 0
+        maximum: 128
+        description: 'Identification of the Profile type to download and install in the eUICC. This parameter must be present if the ICCID is not present.'
+
+  confirmOrderReq:
+    type: object
+    required:
+      - header
+      - iccid
+      - releaseFlag
+    description: 'confirmOrder'
+    properties:
+      header:
+        $ref: '#/definitions/headerReqObj'
+      confirmationCode :
+        type: string
+        minimum: 0
+        maximum: 128
+        description: 'A code used to authorize the usage of the MatchingID to confirm the download and installation of the Profile.'
+      displayProfileName:
+        type: string
+        minimum: 0
+        maximum: 128
+        description: 'If present, it changes the short description text present in the profile MetaData displayed to the end user. If not present, the default value is used.'
+      eid:
+        type: string
+        minimum: 0
+        maximum: 32
+        description: 'Identification of the targeted eUICC. If provided, the SM-DP+ will restrict the download of this profile to the eUICC identified by this eid.'
+      iccid:
+        type: string
+        minimum: 1
+        maximum: 20
+        description: 'Identification of the Profile to download and install in the eUICC. ICCID as desc in ITU-T E.118.'
+      matchingId:
+        type: string
+        minimum: 0
+        maximum: 256
+        description: 'The MatchingId is equivalent to the Activation Code Token as defined is SGP.21. Note that in case the MatchingId is not defined in the request, then SMDP+ will use the MatchingId id provided during profile provisioning if any, instead of generating a new one.'
+      releaseFlag:
+        type: string
+        minimum: 1
+        maximum: 20
+        description: 'If true, the Profile SHALL be immediately released for Profile download and installation'
+      smdsAddress:
+        type: string
+        minimum: 0
+        maximum: 512
+        description: 'The SM-DS address to be used for Event Registration. If present, an event will be registered to the SM-DS available at this address. Warning: this SM-DS address must configured in the SMDP+, so that the SM-DS can be reached, this parameter is not dynamic. Type is FQDN (e.g. smds.gsma.com)'
+
+  cancelOrderReq:
+    type: object
+    required:
+      - header
+      - finalProfileStatusIndicator
+      - iccid
+    description: 'cancelOrderReq'
+    properties:
+      header:
+        $ref: '#/definitions/headerReqObj'
+      eid :
+        type: string
+        minimum: 0
+        maximum: 32
+        description: 'Identification of the targeted eUICC. If provided, the SM-DP+ will check that it’s the one already associated with the profile. Note that If there is an EID already associated with the ICCID for the download order to cancel, the EID is a mandatory input data'
+      finalProfileStatusIndicator:
+        type: string
+        minimum: 1
+        maximum: 20
+        description: 'Allowed finalProfileStatusIndicator are :
+                      Available,
+                      Unavailable,
+                      Allocated,
+                      Confirmed'
+      iccid:
+        type: string
+        minimum: 1
+        maximum: 20
+        description: 'Identification of the Profile to download and install in the eUICC. ICCID as desc in ITU-T E.118.'
+      matchingId:
+        type: string
+        minimum: 0
+        maximum: 256
+        description: 'The MatchingId is equivalent to the Activation Code Token as defined is SGP.21. Note that in case the MatchingId is not defined in the request, then SMDP+ will use the MatchingId id provided during profile provisioning if any, instead of generating a new one.'
+
+  releaseProfileReq:
+    type: object
+    required:
+      - header
+      - iccid
+    description: 'releaseProfileReq'
+    properties:
+      header:
+        $ref: '#/definitions/headerReqObj'
+      iccid:
+        type: string
+        minimum: 1
+        maximum: 20
+        description: 'Identification of the Profile to download and install in the eUICC. ICCID as desc in ITU-T E.118.'
+
+  downloadOrderRsp:
+    type: object
+    required:
+      - header
+    description: 'downloadOrderRsp'
+    properties:
+      es2pSmdpAddress:
+        type: string
+        minimum: 0
+        maximum: 512
+        description: 'The ES2+ SM-DP+ server FQDN to use for the following ES2+ calls in geo active/active mode'
+      iccid:
+        type: string
+        minimum: 0
+        maximum: 20
+        description: 'Identification of the Profile to download and install in the eUICC. ICCID as desc in ITU-T E.118'
+      header:
+        $ref: '#/definitions/headerRspObj'
+
+  confirmOrderRsp:
+    type: object
+    required:
+      - header
+      - matchingId
+      - smdpAddress
+    description: 'confirmOrderRsp'
+    properties:
+      eid:
+        type: string
+        minimum: 0
+        maximum: 32
+        description: 'Identification of the targeted eUICC. Returned if already associated to the download use case for this profile'
+      matchingId:
+        type: string
+        minimum: 1
+        maximum: 256
+        description: 'The matchingId is equivalent to the Activation Code Token as defined is SGP.21'
+      smdpAddress:
+        type: string
+        minimum: 1
+        maximum: 512
+        description: 'The SM-DP+ address to be used for this specific download order'
+      header:
+        $ref: '#/definitions/headerRspObj'
+
+  cancelOrderRsp:
+    type: object
+    required:
+      - header
+    description: 'cancelOrderRsp'
+    properties:
+      header:
+        $ref: '#/definitions/headerRspObj'
+
+  releaseProfileRsp:
+    type: object
+    required:
+      - header
+    description: 'releaseProfileRsp'
+    properties:
+      header:
+        $ref: '#/definitions/headerRspObj'
+
+  headerReqObj:
+    type: object
+    required:
+      - functionCallIdentifier
+      - functionRequesterIdentifier
+    description: 'Header request type Object.'
+    properties:
+      functionCallIdentifier:
+        type: string
+        minimum: 1
+        maximum: 100
+        description: 'Identification of the function call. '
+      functionRequesterIdentifier:
+        type: string
+        minimum: 1
+        maximum: 100
+        description: 'Identification of the function requester.'
+
+  headerRspObj:
+    type: object
+    required:
+      - functionExecutionStatus
+    description: 'Header request type Object.'
+    properties:
+      functionExecutionStatus:
+        type: object
+        $ref: '#/definitions/FunctionExecutionStatusType'
+
+  FunctionExecutionStatusType:
+    type: object
+    required:
+      - status
+    description: 'Wether the function has been processed correctly or not.'
+    properties:
+      status:
+        type: string
+        minimum: 1
+        maximum: 25
+        description: 'Textual and human readable explanation. '
+      statusCodeData:
+        type: object
+        $ref: '#/definitions/StatusCodeDataType'
+
+  StatusCodeDataType:
+    type: object
+    required:
+      - reasonCode
+      - subjectCode
+    description: 'statusCodeData'
+    properties:
+      message:
+        type: string
+        minimum: 0
+        maximum: 500
+        description: 'Textual and human readable explanation. '
+      reasonCode:
+        type: string
+        minimum: 1
+        maximum: 5
+        description: 'OID of the reason code'
+      subjectCode:
+        type: string
+        minimum: 1
+        maximum: 5
+        description: 'OID of the subject code'
+      subjectIdentifier:
+        type: string
+        minimum: 0
+        maximum: 100
+        description: 'Identifier of the subject'
